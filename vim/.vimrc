@@ -9,9 +9,12 @@ call vundle#rc()
 
 "Vundle :: bundles to install
 Bundle 'gmarik/vundle'
+Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-pathogen'
 Bundle 'tpope/vim-fugitive'
-Bundle 'scrooloose/syntastic'
+Bundle 'tpope/vim-surround'
+Bundle 'Raimondi/delimitMate'
+Bundle 'docunext/closetag.vim'
 
 filetype on
 filetype indent on
@@ -210,6 +213,10 @@ set background=dark
 let g:zenburn_use_console_bg=1
 let g:zenburn_high_Contrast=1
 colorscheme zenburn
+"colorscheme clouds
+"colorscheme cloudsm
+"colorscheme molokai
+"colorscheme mustang
 set showtabline=2
 
 hi ColorColumn ctermbg=238 cterm=none
