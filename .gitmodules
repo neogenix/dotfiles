@@ -19,3 +19,12 @@
 [submodule "vim/.vim/bundle/vim-surround"]
 	path = vim/.vim/bundle/vim-surround
 	url = git://github.com/tpope/vim-surround.git
+[submodule "vim/.vim/bundle/tagbar"]
+	path = vim/.vim/bundle/tagbar
+	url = git://github.com/majutsushi/tagbar.git
+[submodule "vim/.vim/bundle/nerdcommenter"]
+	path = vim/.vim/bundle/nerdcommenter
+	url = git://github.com/scrooloose/nerdcommenter.git
+[submodule "vim/.vim/bundle/vim-bundle-sparkup"]
+	path = vim/.vim/bundle/vim-bundle-sparkup
+	url = git://github.com/sophacles/vim-bundle-sparkup.git

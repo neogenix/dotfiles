@@ -1,8 +1,8 @@
 set nocompatible
 
 "activate pathogen
-call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
+call pathogen#runtime_append_all_bundles()
 
 "activate Vundle
 call vundle#rc()
@@ -15,6 +15,9 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
 Bundle 'Raimondi/delimitMate'
 Bundle 'docunext/closetag.vim'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'majutsushi/tagbar'
+Bundle 'rstacruz/sparkup'
 
 filetype on
 filetype indent on
@@ -22,7 +25,10 @@ filetype plugin on
 
 "statusline setup
 set statusline=%f       "tail of the filename
-"
+
+"enable Mouse
+set mouse=a
+
 ""display a warning if fileformat isnt unix
 set statusline+=%#warningmsg#
 set statusline+=%{&ff!='unix'?'['.&ff.']':''}
