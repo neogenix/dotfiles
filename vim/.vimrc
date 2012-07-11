@@ -17,7 +17,7 @@ Bundle 'Raimondi/delimitMate'
 Bundle 'docunext/closetag.vim'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'majutsushi/tagbar'
-Bundle 'rstacruz/sparkup'
+Bundle 'sophacles/vim-bundle-sparkup'
 
 filetype on
 filetype indent on
