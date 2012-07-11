@@ -5,7 +5,6 @@ call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
 "activate Vundle
-set rtp+=~/.vim/vundle.git/
 call vundle#rc()
 
 "Vundle :: bundles to install
