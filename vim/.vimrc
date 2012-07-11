@@ -1,7 +1,18 @@
 set nocompatible
+
 "activate pathogen
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
+
+"activate Vundle
+set rtp+=~/.vim/vundle.git/
+call vundle#rc()
+
+"Vundle :: bundles to install
+Bundle 'gmarik/vundle'
+Bundle 'tpope/vim-pathogen'
+Bundle 'tpope/vim-fugitive'
+Bundle 'scrooloose/syntastic'
 
 filetype on
 filetype indent on
