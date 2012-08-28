@@ -52,3 +52,6 @@ tmtags
 
 # Node
 node_modules
+
+# Git
+.gitconfig
