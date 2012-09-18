@@ -5,6 +5,7 @@ call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 
 "activate Vundle
+set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 "Vundle :: bundles to install
@@ -27,7 +28,7 @@ filetype plugin on
 set statusline=%f       "tail of the filename
 
 "enable Mouse
-set mouse=a
+"set mouse=a
 
 ""display a warning if fileformat isnt unix
 set statusline+=%#warningmsg#
@@ -223,6 +224,11 @@ colorscheme zenburn
 "colorscheme cloudsm
 "colorscheme molokai
 "colorscheme mustang
+"colorscheme Tomorrow-Night-Bright
+"colorscheme Tomorrow-Night-Blue
+"colorscheme Tomorrow-Night-Eighties
+"colorscheme Tomorrow-Night
+"colorscheme Tomorrow
 set showtabline=2
 
 hi ColorColumn ctermbg=238 cterm=none
