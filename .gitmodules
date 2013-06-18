@@ -28,3 +28,6 @@
 [submodule "vim/.vim/bundle/vim-bundle-sparkup"]
 	path = vim/.vim/bundle/vim-bundle-sparkup
 	url = git://github.com/sophacles/vim-bundle-sparkup.git
+[submodule "vim/.vim/bundle/vim-jade"]
+	path = vim/.vim/bundle/vim-jade
+	url = git://github.com/digitaltoad/vim-jade.git
