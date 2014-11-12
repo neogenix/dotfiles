@@ -34,3 +34,6 @@
 [submodule "vim/.vim/bundle/vim-airline"]
 	path = vim/.vim/bundle/vim-airline
 	url = https://github.com/bling/vim-airline
+[submodule "vim/.vim/bundle/vim-puppet"]
+	path = vim/.vim/bundle/vim-puppet
+	url = https://github.com/rodjek/vim-puppet

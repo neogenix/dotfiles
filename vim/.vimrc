@@ -19,6 +19,7 @@ Bundle 'docunext/closetag.vim'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'majutsushi/tagbar'
 Bundle 'sophacles/vim-bundle-sparkup'
+Bundle 'rodjek/vim-puppet'
 
 filetype on
 filetype indent on
