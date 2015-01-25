@@ -208,6 +208,8 @@ let g:syntastic_javascript_jsl_conf='/home/jkoelker/.jsl.conf'
 set nu
 nnoremap <F2> :set nonumber!<CR>
 
+set modeline
+
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
