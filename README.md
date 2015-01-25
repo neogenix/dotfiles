@@ -22,7 +22,9 @@ gitignore for
 Installation
 ============
 
+```
 git clone https://github.com/neogenix/dotfiles.git neogenix-dotfiles
 ln -sf neogenix-dotfiles/vim/.vim ~/.vim
 ln -sf neogenix-dotfiles/vim/.vimrc ~/.vimrc
 ln -sf neogenix-dotfiles/git/.gitignore ~/.gitignore
+```
