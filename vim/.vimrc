@@ -23,6 +23,8 @@ Bundle 'rodjek/vim-puppet'
 Bundle 'davidhalter/jedi-vim'
 Bundle 'jeetsukumaran/vim-buffergator'
 Bundle 'vim-pandoc/vim-markdownfootnotes'
+Bundle 'digitaltoad/vim-jade'
+Bundle 'bling/vim-airline'
 
 """ Setup Plugins
 filetype on
