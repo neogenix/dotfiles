@@ -9,14 +9,16 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 """ Vundle :: bundles to install
-Bundle 'gmarik/vundle'
 Bundle 'scrooloose/syntastic'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-pathogen'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
+
+Bundle 'gmarik/vundle'
 Bundle 'Raimondi/delimitMate'
 Bundle 'docunext/closetag.vim'
-Bundle 'scrooloose/nerdcommenter'
 Bundle 'majutsushi/tagbar'
 Bundle 'sophacles/vim-bundle-sparkup'
 Bundle 'rodjek/vim-puppet'
@@ -25,6 +27,41 @@ Bundle 'jeetsukumaran/vim-buffergator'
 Bundle 'vim-pandoc/vim-markdownfootnotes'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'bling/vim-airline'
+
+""" Vundle :: bundles in testing
+"Bundle 'Valloric/YouCompleteMe'
+Bundle 'sheerun/vim-polyglot'
+Bundle 'elzr/vim-json'
+Bundle 'fatih/vim-go'
+Bundle 'airblade/vim-gitgutter'
+Bundle 'Shougo/neocomplcache.vim'
+Bundle 'Shougo/unite.vim'
+Bundle 'altercation/vim-colors-solarized'
+
+""" Airline :: Setup
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+  let g:airline_theme_patch_func = 'AirlineThemePatch'
+  function! AirlineThemePatch(palette)
+    if g:airline_theme == 'bubblegum'
+      for colors in values(a:palette.inactive)
+        let colors[3] = 245
+      endfor
+    endif
+  endfunction
+
+""" NeoComplete+Cache :: Setup
+let g:neocomplcache_enable_at_startup = 1
+
+""" GitGutter :: Setup
+let g:gitgutter_enabled = 0
+let g:gitgutter_sign_column_always = 1
+
+""" NerdTree :: Setup
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary")
+map <C-n> :NERDTreeToggle<CR>
 
 """ Setup Plugins
 filetype on
@@ -228,6 +265,8 @@ syntax on
 set expandtab
 set background=dark
 set showtabline=2
+
+"colorscheme solarized
 
 let g:zenburn_use_console_bg=1
 let g:zenburn_high_Contrast=1
