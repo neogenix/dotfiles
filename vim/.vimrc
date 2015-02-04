@@ -202,8 +202,8 @@ let g:syntastic_check_on_open=1
 "let g:syntastic_auto_loc_list=2
 
 "let g:pyflakes_builtins=['_']
+"let g:syntastic_javascript_jsl_conf='/home/jkoelker/.jsl.conf'
 let g:syntastic_python_checker_args='--builtins=_'
-let g:syntastic_javascript_jsl_conf='/home/jkoelker/.jsl.conf'
 
 set nu
 nnoremap <F2> :set nonumber!<CR>
@@ -238,7 +238,7 @@ hi ColorColumn ctermbg=238 cterm=none
 nnoremap <F3> :set colorcolumn=80<CR>
 nnoremap <F4> :set colorcolumn=<CR>
 
-" show trailing whitespace
+"show trailing whitespace
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
