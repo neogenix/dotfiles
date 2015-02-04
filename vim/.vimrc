@@ -1,14 +1,14 @@
 set nocompatible
 
-"activate pathogen
+""" Activate pathogen
 call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 
-"activate Vundle
+""" Activate Vundle
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-"Vundle :: bundles to install
+""" Vundle :: bundles to install
 Bundle 'gmarik/vundle'
 Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-pathogen'
@@ -21,23 +21,26 @@ Bundle 'majutsushi/tagbar'
 Bundle 'sophacles/vim-bundle-sparkup'
 Bundle 'rodjek/vim-puppet'
 Bundle 'davidhalter/jedi-vim'
+Bundle 'jeetsukumaran/vim-buffergator'
+Bundle 'vim-pandoc/vim-markdownfootnotes'
 
+""" Setup Plugins
 filetype on
 filetype indent on
 filetype plugin on
 
-"statusline setup
+""" Setup Statusline
 set statusline=%f       "tail of the filename
 
-"enable Mouse
+""" Enable Mouse
 "set mouse=a
 
-""display a warning if fileformat isnt unix
+""" Display a warning if fileformat isnt unix
 set statusline+=%#warningmsg#
 set statusline+=%{&ff!='unix'?'['.&ff.']':''}
 set statusline+=%*
 
-"display a warning if file encoding isnt utf-8
+""" Display a warning if file encoding isnt utf-8
 set statusline+=%#warningmsg#
 set statusline+=%{(&fenc!='utf-8'&&&fenc!='')?'['.&fenc.']':''}
 set statusline+=%*
@@ -47,7 +50,7 @@ set statusline+=%y      "filetype
 set statusline+=%r      "read only flag
 set statusline+=%m      "modified flag
 
-"display a warning if &et is wrong, or we have mixed-indenting
+""" Display a warning if &et is wrong, or we have mixed-indenting
 set statusline+=%#error#
 set statusline+=%{StatuslineTabWarning()}
 set statusline+=%*
@@ -60,23 +63,23 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-"display a warning if &paste is set
+""" Display a warning if &paste is set
 set statusline+=%#error#
 set statusline+=%{&paste?'[paste]':''}
 set statusline+=%*
-
 set statusline+=%=      "left/right separator
-"set statusline+=%{StatuslineCurrentHighlight()}\ \ "current highlight
 set statusline+=%c,     "cursor column
 set statusline+=%l/%L   "cursor line/total lines
 set statusline+=\ %P    "percent through file
+"set statusline+=%{StatuslineCurrentHighlight()}\ \ "current highlight
+
 set laststatus=2
 
-"recalculate the trailing whitespace warning when idle, and after saving
+""" Recalculate the trailing whitespace warning when idle, and after saving
 autocmd cursorhold,bufwritepost * unlet! b:statusline_trailing_space_warning
 
-"return '[\s]' if trailing white space is detected
-"return '' otherwise
+"""" return '[\s]' if trailing white space is detected
+"""" return '' otherwise
 function! StatuslineTrailingSpaceWarning()
     if !exists("b:statusline_trailing_space_warning")
 
@@ -95,22 +98,22 @@ function! StatuslineTrailingSpaceWarning()
 endfunction
 
 
-"return the syntax highlight group under the cursor ''
-"function! StatuslineCurrentHighlight()
-"    let name = synIDattr(synID(line('.'),col('.'),1),'name')
-"    if name == ''
-"        return ''
-"    else
-"        return '[' . name . ']'
-"    endif
-"endfunction
+"""" return the syntax highlight group under the cursor ''
+""""" function! StatuslineCurrentHighlight()
+"""""     let name = synIDattr(synID(line('.'),col('.'),1),'name')
+"""""     if name == ''
+"""""         return ''
+"""""     else
+"""""         return '[' . name . ']'
+"""""     endif
+""""" endfunction
 
-"recalculate the tab warning flag when idle and after writing
+"""" recalculate the tab warning flag when idle and after writing
 autocmd cursorhold,bufwritepost * unlet! b:statusline_tab_warning
 
-"return '[&et]' if &et is set wrong
-"return '[mixed-indenting]' if spaces and tabs are used to indent
-"return an empty string if everything is fine
+"""" return '[&et]' if &et is set wrong
+"""" return '[mixed-indenting]' if spaces and tabs are used to indent
+"""" return an empty string if everything is fine
 function! StatuslineTabWarning()
     if !exists("b:statusline_tab_warning")
         let b:statusline_tab_warning = ''
@@ -121,7 +124,7 @@ function! StatuslineTabWarning()
 
         let tabs = search('^\t', 'nw') != 0
 
-        "find spaces that arent used as alignment in the first indent column
+        """" find spaces that arent used as alignment in the first indent column
         let spaces = search('^ \{' . &ts . ',}[^\t]', 'nw') != 0
 
         if tabs && spaces
@@ -133,16 +136,16 @@ function! StatuslineTabWarning()
     return b:statusline_tab_warning
 endfunction
 
-"recalculate the long line warning when idle and after saving
+"""" recalculate the long line warning when idle and after saving
 autocmd cursorhold,bufwritepost * unlet! b:statusline_long_line_warning
 
-"return a warning for "long lines" where "long" is either &textwidth or 80 (if
-"no &textwidth is set)
-"
-"return '' if no long lines
-"return '[#x,my,$z] if long lines are found, were x is the number of long
-"lines, y is the median length of the long lines and z is the length of the
-"longest line
+"""" return a warning for "long lines" where "long" is either &textwidth or 80 (if
+"""" no &textwidth is set)
+
+"""" return '' if no long lines
+"""" return '[#x,my,$z] if long lines are found, were x is the number of long
+"""" lines, y is the median length of the long lines and z is the length of the
+"""" longest line
 function! StatuslineLongLineWarning()
     if !exists("b:statusline_long_line_warning")
 
@@ -165,7 +168,7 @@ function! StatuslineLongLineWarning()
     return b:statusline_long_line_warning
 endfunction
 
-"return a list containing the lengths of the long lines in this buffer
+"""" return a list containing the lengths of the long lines in this buffer
 function! s:LongLines()
     let threshold = (&tw ? &tw : 80)
     let spaces = repeat(" ", &ts)
@@ -184,7 +187,7 @@ function! s:LongLines()
     return long_line_lens
 endfunction
 
-"find the median of the given array of numbers
+"""" find the median of the given array of numbers
 function! s:Median(nums)
     let nums = sort(a:nums)
     let l = len(nums)
@@ -197,7 +200,7 @@ function! s:Median(nums)
     endif
 endfunction
 
-"syntastic settings
+""" Syntastic Settings
 let g:syntastic_check_on_open=1
 "let g:syntastic_enable_signs=1
 "let g:syntastic_auto_loc_list=2
@@ -216,14 +219,18 @@ set softtabstop=4
 set shiftwidth=4
 set autoindent
 set smartindent
-"set scrolloff=999
 set t_Co=256
+"set scrolloff=999
+
 syntax on
 set expandtab
 set background=dark
+set showtabline=2
+
 let g:zenburn_use_console_bg=1
 let g:zenburn_high_Contrast=1
 colorscheme zenburn
+
 "colorscheme clouds
 "colorscheme cloudsm
 "colorscheme molokai
@@ -233,13 +240,12 @@ colorscheme zenburn
 "colorscheme Tomorrow-Night-Eighties
 "colorscheme Tomorrow-Night
 "colorscheme Tomorrow
-set showtabline=2
 
 hi ColorColumn ctermbg=238 cterm=none
 nnoremap <F3> :set colorcolumn=80<CR>
 nnoremap <F4> :set colorcolumn=<CR>
 
-"show trailing whitespace
+""" Show trailing whitespace
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
