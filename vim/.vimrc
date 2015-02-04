@@ -20,6 +20,7 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'majutsushi/tagbar'
 Bundle 'sophacles/vim-bundle-sparkup'
 Bundle 'rodjek/vim-puppet'
+Bundle 'davidhalter/jedi-vim'
 
 filetype on
 filetype indent on
